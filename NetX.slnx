@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Readme.md" />
+  </Folder>
+  <Project Path="ConsoleHelpers/ConsoleHelpers.csproj" />
+  <Project Path="NetXFramework/NetXFramework.csproj" Id="753ab3ad-3665-4479-87d3-5a2d809f8e34" />
+</Solution>
