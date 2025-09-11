@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO.Compression;
 
 public static class netx
 {
@@ -75,6 +76,16 @@ public static class netx
         var target_path = Path.Combine(target_folder, target_file);
 
         File.Copy(in_file, target_path, overwrite);
+    }
+
+    public static void pack(string target_folder, string output_file)
+    {
+        ZipFile.CreateFromDirectory(target_folder, output_file);
+    }
+
+    public static void unpack(string zip_file, string destination_folder)
+    {
+        ZipFile.ExtractToDirectory(zip_file,destination_folder);
     }
 }
 

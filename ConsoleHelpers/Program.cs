@@ -8,7 +8,9 @@ cd("..");
 list();
 copy("../../../program23.cs", "c:/temp", true);
 print(current_directory);
-run("notepad.exe");
+//run("notepad.exe");
+
+pack("c:temp", "temp.zip");
 
 
 
