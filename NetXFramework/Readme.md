@@ -7,7 +7,7 @@ and feasibility.  While all commands have been tested, all error conditions have
 
 #### 1.0.1-preview Changes
 - Added ```commandline```
-- Added ```environment_variable```
+- Added ```environment_variables```
 - Added ```prompt(<text>)```
 
 
