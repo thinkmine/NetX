@@ -7,4 +7,4 @@ print("Script customization");
 pwd();
 
 //copy the created nuget package to the root folder
-copy("NetXFramework/bin/release/thinkmine.netx.framework.1.0.4-preview.nupkg", ".");
+copy("NetXFramework/bin/release/thinkmine.netx.framework.1.0.5-preview.nupkg", ".");

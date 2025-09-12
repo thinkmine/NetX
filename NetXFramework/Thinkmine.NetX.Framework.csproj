@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>NetX Framework</Title>
     <Authors>Edward Moemeka, Obinna Igbokwe, thinkmine, Platform Based Solutions</Authors>
-    <Version>1.0.4-preview</Version>
+    <Version>1.0.5-preview</Version>
     <Description>Utility methods that provide quick shortcuts to functionality in scenarios where C# is being run using dotnet run app</Description>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <PackageIcon>zaria.png</PackageIcon>
