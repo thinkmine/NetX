@@ -29,7 +29,10 @@ jobs:
 
     - name: See what version of .NET was installed
       run: dotnet --version
-
+      
+    - name: Restore dependencies
+      run: dotnet restore
+        
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
