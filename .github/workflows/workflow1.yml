@@ -10,8 +10,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - name: One
-      - run: hello
+      - run: echo hello
       
    
     
