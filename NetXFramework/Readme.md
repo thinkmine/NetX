@@ -33,7 +33,7 @@ Here is what a sample netx script looks like.  Assuming this file was called __d
 ```dotnet run dostuff.cs```  
 
 ```
-//#:package NetX@1.0.2-preview
+#:package NetX@1.0.2-preview
 using static netx;
 
 exec("dir");

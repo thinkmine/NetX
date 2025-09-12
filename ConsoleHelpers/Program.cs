@@ -1,4 +1,5 @@
-﻿//#:package NetX@1.0.2
+﻿#:package Thinkmine.NetX.Framework@1.0.2-preview
+
 using static netx;
 
 print(commandline.Length.ToString());
@@ -17,7 +18,7 @@ if (Validate(passcode))
     exec("dir");
     exec("echo hello");
     pwd();
-    cd("../../..");
+    //cd("../../..");
     rename("test.txt", "helloworld.txt");
     list();
     copy("bin", "test");
