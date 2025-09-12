@@ -5,15 +5,18 @@ name: workflow1
 on:
   workflow_dispatch:
 
+env:                
+  GLOBAL_VAR: "Hello"
+
 jobs: 
   build:
     runs-on: self-hosted
     
     steps:
       - name: task 1
-        run: echo hello ${{ secrets.S1 }}
+        run: echo hello $GLOBAL_VAR ${{ secrets.S1 }}
       - name: task 2
-        run: echo world %AAAA%
+        run: echo world $AAAA
       
    
     
