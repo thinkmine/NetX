@@ -39,6 +39,14 @@ jobs:
     - name: Test netx
       run: dotnet run build_script.cs yabadabadoo
       
+    - name: Publish to NuGet
+      run: dotnet nuget push thinkmine.netx.framework.1.0.4-preview.nupkg \
+            --api-key oy2cepu5cptzufschscqnsjyqgtzc4sebnnafo6fk7urrq \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+
+
+      
     - name: List Directories
       run: dir
 
