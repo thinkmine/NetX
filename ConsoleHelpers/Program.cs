@@ -1,4 +1,4 @@
-﻿#:package Thinkmine.NetX.Framework@1.0.2-preview
+﻿//#:package Thinkmine.NetX.Framework@1.0.2-preview
 
 using static netx;
 
