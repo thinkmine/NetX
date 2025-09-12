@@ -9,6 +9,7 @@ on:
 jobs:
 
   build:
+    name: Test netx
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
@@ -28,9 +29,12 @@ jobs:
 
     - name: See what version of .NET was installed
       run: dotnet --version
+
+    - name: Test netx
+      run: dotnet run build_script.cs yabadabadoo
       
     - name: List Directories
       run: dir
 
-    - name: ENding
+    - name: Ending
       run: echo [Ending Test]
