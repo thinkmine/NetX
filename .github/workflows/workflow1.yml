@@ -13,7 +13,7 @@ jobs:
       - name: task 1
         run: echo hello ${{ secrets.S1 }}
       - name: task 2
-        run: echo world ${{ AAAA }}
+        run: echo world %AAAA%
       
    
     
