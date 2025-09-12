@@ -4,5 +4,7 @@ using static netx;
 
 print("Script customization");
 
+pwd();
+
 //copy the created nuget package to the root folder
-copy("bin/release/thinkmine.netx.framework.1.0.4-preview.nupkg", ".");
+copy("NetXFramework/bin/release/thinkmine.netx.framework.1.0.4-preview.nupkg", ".");
