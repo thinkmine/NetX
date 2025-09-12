@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net.Mime;
+using System.Runtime.InteropServices;
 using System.Xml;
 
 
@@ -181,6 +182,22 @@ public static class netx
     {
         string cmd = "cmd.exe";
         string args = $"$/c {command}";   // "/c" runs and then terminates
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            cmd = "/bin/bash";
+            args = $"$-c {command}";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            cmd = "/bin/bash";
+            args = $"$-c {command}";
+        }
+        else
+        {
+            print_error("exec can't run on this OS");
+            return;
+        }
 
         ProcessStartInfo psi = new ProcessStartInfo
         {

@@ -5,6 +5,11 @@
 This is a __preview__ version of NetX focused on exploring functionality, usage scenarios,
 and feasibility.  While all commands have been tested, all error conditions have not been encountered.
 
+#### 1.0.3-preview Changes
+- Added support for Linux and OSX to ```exec``` 
+- Added ```environment_variables```
+- Added ```prompt(<text>)``
+- 
 #### 1.0.1-preview Changes
 - Added ```commandline```
 - Added ```environment_variables```
@@ -33,7 +38,7 @@ Here is what a sample netx script looks like.  Assuming this file was called __d
 ```dotnet run dostuff.cs```  
 
 ```
-#:package NetX@1.0.2-preview
+#:package NetX@1.0.*-preview
 using static netx;
 
 exec("dir");
