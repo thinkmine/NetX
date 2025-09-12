@@ -30,6 +30,9 @@ jobs:
     - name: See what version of .NET was installed
       run: dotnet --version
 
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
     - name: Test netx
       run: dotnet run build_script.cs yabadabadoo
       
