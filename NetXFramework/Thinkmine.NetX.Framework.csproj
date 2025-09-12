@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>NetX Framework</Title>
+    <Authors>Edward Moemeka, Obinna Igbokwe, thinkmine, Platform Based Solutions</Authors>
+    <Version>1.0.1-preview</Version>
+    <Description>Utility methods that provide quick shortcuts to functionality in scenarios where C# is being run using dotnet run app</Description>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageIcon>zaria.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/thinkmine/NetX</PackageProjectUrl>
+    <AssemblyName>Thinkmine.NetX.Framework</AssemblyName>
+    <RootNamespace>netx</RootNamespace>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="zaria.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

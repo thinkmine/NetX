@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetXFramework\NetXFramework.csproj" />
+    <ProjectReference Include="..\NetXFramework\Thinkmine.NetX.Framework.csproj" />
   </ItemGroup>
 
 </Project>

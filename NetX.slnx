@@ -3,5 +3,6 @@
     <File Path="Readme.md" />
   </Folder>
   <Project Path="ConsoleHelpers/ConsoleHelpers.csproj" />
-  <Project Path="NetXFramework/NetXFramework.csproj" Id="753ab3ad-3665-4479-87d3-5a2d809f8e34" />
+  <Project Path="NetX/Thinkmine.NetX.csproj" Id="97776f25-1a8e-4d49-ae6e-baf428d771cf" />
+  <Project Path="NetXFramework/Thinkmine.NetX.Framework.csproj" Id="753ab3ad-3665-4479-87d3-5a2d809f8e34" />
 </Solution>

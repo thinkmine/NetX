@@ -1,20 +1,49 @@
 ﻿//#:package NetX@1.0.0
 using static netx;
 
+var passcode = prompt("What is your passcode");
+if (Validate(passcode))
+{
+    exec("dir");
+    exec("echo hello");
+    pwd();
+    cd("../../..");
+    rename("test.txt", "helloworld.txt");
+    list();
+    copy("bin", "test");
+    list();
+    pwd();
+    copy("program.cs", "c:/temp", "hello.cs");
+    pack("c:/temp", "temp.zip");
+    list();
+    unpack("temp.zip", "destination");
+    delete("temp.zip");
+    delete("destination");
+    delete("test");
 
 
-pwd();
-cd("..");
-list();
-copy("../../../program23.cs", "c:/temp", true);
-print(current_directory);
-//run("notepad.exe");
+    var v = http_get("http://www.google.com");
+    print(v);
 
-pack("c:temp", "temp.zip");
+    var v2 = http_post("http://www.google.com", new
+    {
+        Name = "John",
+        Age = 33,
+    });
+    print(v2);
+
+    rename("helloworld.txt", "test.txt");
+}
+else
+{
+    print("You can't do this", "white", "red");
+}
 
 
+bool Validate(string passcode)
+{
+    if(passcode == "netx")
+    return true;
 
-
-
-
-
+    return false;
+}
