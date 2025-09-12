@@ -36,6 +36,12 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
+    - name: Publish to NuGet
+      run: dotnet nuget push *.nupkg \
+            --api-key oy2cepu5cptzufschscqnsjyqgtzc4sebnnafo6fk7urrq \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+
     - name: Test netx
       run: dotnet run build_script.cs yabadabadoo
       
