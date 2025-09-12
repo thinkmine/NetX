@@ -1,0 +1,12 @@
+name: workflow2
+
+on:
+  workflow_run:
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+      - name: initial
+      - run: echo world
