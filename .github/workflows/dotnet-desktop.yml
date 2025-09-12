@@ -1,4 +1,4 @@
-# fdsfsf
+# Some comment
 
 name: My First Action
 
@@ -18,15 +18,19 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Echo
-      run: echo helllo world
+    - name: Starting
+      run: echo [Starting Test]
 
     - name: Setup .NET 10 SDK
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '10.0.x'
 
-    - name: Echo
-      run: ls -al
+    - name: See what version of .NET was installed
+      run: dotnet --version
+      
+    - name: List Directories
+      run: dir
 
-   
+    - name: ENding
+      run: echo [Ending Test]
