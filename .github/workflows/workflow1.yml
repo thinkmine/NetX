@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:                
-  GLOBAL_VAR: "Hello"
+  GLOBAL_VAR: "[global var]"
 
 jobs: 
   build22:
@@ -16,7 +16,7 @@ jobs:
       - name: task 1
         run: echo hello ${{ env.GLOBAL_VAR }} ${{ secrets.S1 }}
       - name: task 2
-        run: echo world $AAAA
+        run: echo world ${{ env.AAAA }}
       
    
     
