@@ -1,6 +1,6 @@
 # NetX
 
-## Release Notes Version 1.0.0-preview
+## Release Notes Version Preview 1
 
 This is a __preview__ version of NetX focused on exploring functionality, usage scenarios,
 and feasibility.  While all commands have been tested, all error conditions have not been encountered.
