@@ -1,4 +1,4 @@
-﻿//#:package NetX@1.0.1
+﻿//#:package NetX@1.0.2
 using static netx;
 
 print(commandline.Length.ToString());
