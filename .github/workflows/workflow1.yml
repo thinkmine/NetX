@@ -9,7 +9,8 @@ env:
   GLOBAL_VAR: "Hello"
 
 jobs: 
-  build:
+  build22:
+    name:  deaux
     runs-on: self-hosted
     
     steps:
