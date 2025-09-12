@@ -7,7 +7,7 @@ on:
       - completed            
 jobs:
   publish:
-    runs-on: macbook-local
+    runs-on: self-hosted
 
     steps:
       - run: echo world
