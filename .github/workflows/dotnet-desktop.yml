@@ -1,6 +1,6 @@
 # fdsfsf
 
-name: Action 1
+name: My First Action
 
 on:
   workflow_dispatch:
