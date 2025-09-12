@@ -1,4 +1,4 @@
-﻿//#:package NetX@1.0.0
+﻿//#:package NetX@1.0.1
 using static netx;
 
 var passcode = prompt("What is your passcode");
