@@ -1,6 +1,16 @@
 ﻿//#:package NetX@1.0.1
 using static netx;
 
+print(commandline.Length.ToString());
+if (commandline.Length > 0)
+    print($"Command Line: {commandline[0]}");
+
+foreach (var item in environment_variables)
+{
+    print($"{item.Key}={item.Value}");
+}
+
+
 var passcode = prompt("What is your passcode");
 if (Validate(passcode))
 {
@@ -42,8 +52,8 @@ else
 
 bool Validate(string passcode)
 {
-    if(passcode == "netx")
-    return true;
+    if (passcode == "netx")
+        return true;
 
     return false;
 }

@@ -5,6 +5,10 @@
 This is a __preview__ version of NetX focused on exploring functionality, usage scenarios,
 and feasibility.  While all commands have been tested, all error conditions have not been encountered.
 
+#### 1.0.1-preview Changes
+- Added ```commandline```
+- Added ```environment_variable```
+- Added ```prompt(<text>)```
 
 
 ## Why netx
@@ -12,7 +16,8 @@ and feasibility.  While all commands have been tested, all error conditions have
 With the release of .NET 10 comes a powerful new feature to C#, __dotnet run file__.
 This capability in the new .NET build toolchain lets us run C# files directly from the ```dotnet run``` command.
 This means that we can easily execute functionality, using C#, in a manner very similar to writing
-scripts.  
+scripts.  To find out more about this feature here:
+https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/  
 
 Of course there are still a number of differences, as C# even though extremely powerful is quite verbose
 in comparison to the needs of a script.  This is obviously because it is designed primarily to be a language for
@@ -28,7 +33,7 @@ Here is what a sample netx script looks like.  Assuming this file was called __d
 ```dotnet run dostuff.cs```  
 
 ```
-//#:package NetX@1.0.1-preview
+//#:package NetX@1.0.2-preview
 using static netx;
 
 exec("dir");
@@ -98,6 +103,32 @@ Now when the script runs the user is prompted to enter a passcode
 that we then check to see it's validity. Based on that we either execute 
 the normal path or let the user know it can't be done.
 
+### Accessing command line arguments
+To access command line arguments use the ```commandline``` global object.  This object
+returns a string array of all the arguments passed into the program at run time.  In the
+example below we use this object to detect whether any command line arguments
+have been sent in and print out the first argument if true.
+
+```
+print(commandline.Length.ToString());
+if (commandline.Length > 0)
+    print($"Command Line: {commandline[0]}");
+```
+
+### Accessing environment variables
+
+To access environment variables use the ```environment_variables``` global object.  This 
+object returns a string based name value dictionary of all global list of 
+environment variables in scope during the exection of the program.
+
+```
+foreach (var item in environment_variables)
+{
+    print($"{item.Key}={item.Value}");
+}
+```
+
+
 ### Calling Functions
 We can even take it a bit further with the ability to make function calls.
 
@@ -144,8 +175,9 @@ on what they are and how to use them.
 |http_post|```http_post(<url>,{object})```|Makes an HTTP POS call to the endpoint provided, passing in an object as the payload.  The object will be converted to json before being sent.
 |json|```json(<text>)```|Converts a string to a json object.
 |xml|```xml(<text>)```|Converts a string to an xml document.
-
-
+|commandline|```commandline```|Gets the command line that was passed into the script when it was run
+|environment_variables|```environment_variables```|Gets a string based name/value dictionary of all the enviroment variables in scope.
+|current_directory|```current_directory```|Gets the current directory as a string value
 
 
 ## Advanced commands

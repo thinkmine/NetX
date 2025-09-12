@@ -1,23 +1,64 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net.Mime;
-using Microsoft.VisualBasic;
 using System.Xml;
+
 
 public static class netx
 {
+    static ReadOnlyDictionary<string, string> _environment_variables;
+
+    /// <summary>
+    /// Gets a string based name/value dictionary of all the enviroment variables
+    /// in scope.
+    /// </summary>
+    public static ReadOnlyDictionary<string, string> environment_variables
+    {
+        get
+        {
+            if (_environment_variables == null)
+            {
+                var vars = Environment.GetEnvironmentVariables();
+                var dictionary = new Dictionary<string, string>();
+                foreach (var key in vars.Keys)
+                {
+                    dictionary.Add((string)key, (string)vars[key]);
+                }
+                _environment_variables = new ReadOnlyDictionary<string, string>(dictionary);
+            }
+            return _environment_variables;
+        }
+    }
+
+
     #region [Console]
     /// <summary>
-    /// Gets the current directory
+    /// Gets the current directory as a string value
     /// </summary>
     public static string current_directory
     {
         get
         {
             return Environment.CurrentDirectory;
+        }
+    }
+
+    /// <summary>
+    /// Gets the command line that was passed into the script when it was run
+    /// </summary>
+    public static string[] commandline
+    {
+        get
+        {
+            var list = new List<string>(Environment.GetCommandLineArgs());
+            list.RemoveAt(0);
+            return list.ToArray();
         }
     }
 
