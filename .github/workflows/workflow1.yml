@@ -19,7 +19,7 @@ jobs:
       - name: task var
         run: echo world -> ${{ vars.AAAA }}
       - name: task envvar-access style 2
-        run: echo world -> GLOBAL_VAR
+        run: echo world -> $GLOBAL_VAR
       - name: task variables without environment
         run: echo world -> ${{ vars.VAR2 }}
       
