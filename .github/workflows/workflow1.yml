@@ -18,6 +18,8 @@ jobs:
         run: echo env -> ${{ env.GLOBAL_VAR }} secret -> ${{ secrets.S1 }}
       - name: task 2
         run: echo world -> ${{ vars.AAAA }}
+      - name: task 3
+        run: echo world -> $GLOBAL_VAR
       
    
     
