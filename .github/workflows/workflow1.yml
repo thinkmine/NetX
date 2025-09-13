@@ -15,11 +15,11 @@ jobs:
     
     steps:
       - name: task globalvar and secret
-        run: echo env -> ${{ env.GLOBAL_VAR }} secret -> ${{ secrets.S1 }}
+        run: echo env -> ${{ env.input1 }} secret -> ${{ secrets.S1 }}
       - name: task var
         run: echo world -> ${{ vars.AAAA }}
       - name: task envvar-access style 2
-        run: echo  " $input1 "
+        run: echo   $input1
       - name: task variables without environment
         run: echo world -> ${{ vars.VAR2 }}
       
