@@ -4,6 +4,11 @@ name: workflow1
 
 on:
   workflow_dispatch:
+    inputs:
+      nuget_version:
+        name: "Nuget Version"
+        type: string
+        description: "The version number that will be published when this package is deployed 
 
 env:                
   input1: 12345
@@ -14,6 +19,8 @@ jobs:
     environment: demo
     
     steps:
+      - name: What was passed in
+        run echo ${{ github.event.inputs.nuget_version }}
       - name: task globalvar and secret
         run: echo env -> ${{ env.input1 }} secret -> ${{ secrets.S1 }}
       - name: task var
