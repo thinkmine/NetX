@@ -14,12 +14,14 @@ jobs:
     environment: demo
     
     steps:
-      - name: task 1
+      - name: task globalvar and secret
         run: echo env -> ${{ env.GLOBAL_VAR }} secret -> ${{ secrets.S1 }}
-      - name: task 2
+      - name: task var
         run: echo world -> ${{ vars.AAAA }}
-      - name: task 3
+      - name: task envvar-access style 2
         run: echo world -> $GLOBAL_VAR
+      - name: task variables without environment
+        run: echo world -> ${{ vars.VAR2 }}
       
    
     
