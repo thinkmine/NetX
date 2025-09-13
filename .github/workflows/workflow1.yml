@@ -15,9 +15,9 @@ jobs:
     
     steps:
       - name: task 1
-        run: echo hello ${{ env.GLOBAL_VAR }} ${{ secrets.S1 }}
+        run: echo env -> ${{ env.GLOBAL_VAR }} secret -> ${{ secrets.S1 }}
       - name: task 2
-        run: echo world (${{ vars.AAAA }}) (${{ env.AAAA }})
+        run: echo world -> ${{ vars.AAAA }}
       
    
     
