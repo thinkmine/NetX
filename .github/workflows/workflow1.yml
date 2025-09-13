@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
     inputs:
       nuget_version:
-        name: "Nuget Version"
         type: string
         description: "The version number that will be published when this package is deployed" 
 
