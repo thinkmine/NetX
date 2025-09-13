@@ -8,7 +8,7 @@ on:
       nuget_version:
         name: "Nuget Version"
         type: string
-        description: "The version number that will be published when this package is deployed 
+        description: "The version number that will be published when this package is deployed" 
 
 env:                
   input1: 12345
