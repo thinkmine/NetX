@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:                
-  GLOBAL_VAR: global var
+  GLOBAL_VAR: global_var_value
 
 jobs: 
   build22:
