@@ -19,7 +19,7 @@ jobs:
     
     steps:
       - name: What was passed in
-        run echo ${{ github.event.inputs.nuget_version }}
+        run: echo ${{ github.event.inputs.nuget_version }}
       - name: task globalvar and secret
         run: echo env -> ${{ env.input1 }} secret -> ${{ secrets.S1 }}
       - name: task var
