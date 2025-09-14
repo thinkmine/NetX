@@ -9,4 +9,4 @@ print($"Your value is {nuget_version}");
 
 
 
-replace_in_file("NetXFramework/Thinkmine.NetX.Framework.csproj", "@@NEW_VERSION", nuget_version);
+//replace_in_file("NetXFramework/Thinkmine.NetX.Framework.csproj", "@@NEW_VERSION", nuget_version);

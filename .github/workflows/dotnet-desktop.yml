@@ -26,13 +26,14 @@ jobs:
     - name: Starting
       run: echo [Starting Test]
 
+    - name: Echo Input
+      run: echo You entered ${{ github.event.inputs.nuget_version }}
+
     - name: Setup .NET 10 SDK
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '10.0.x'
 
-    - name: See what version of .NET was installed
-      run: dotnet --version
 
     - name: Replace content of files with nuget version
       run: dotnet run build_script.cs ${{ github.event.inputs.nuget_version }}
