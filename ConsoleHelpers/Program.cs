@@ -47,6 +47,7 @@ if (Validate(passcode))
 }
 else
 {
+    replace_in_file("../../../test.txt", "@@Hello", "**>Message<**");
     print("You can't do this", "white", "red");
 }
 

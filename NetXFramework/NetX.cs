@@ -362,6 +362,31 @@ public static class netx
     }
     #endregion
 
+    #region [File IO]
+    /// <summary>
+    /// Replaces the given text in the specified file with replacement text
+    /// </summary>
+    /// <param name="file_path"></param>
+    /// <param name="text"></param>
+    /// <param name="replacement_text"></param>
+    public static void replace_in_file(string file_path, string text, string replacement_text)
+    {
+        var file_text = File.ReadAllText(file_path);
+        var new_file_text = file_text.Replace(text, replacement_text);
+        File.WriteAllText(file_path, new_file_text);
+    }
+
+    /// <summary>
+    /// Converts a string representation of a number to a number
+    /// </summary>
+    /// <param name="number_text"></param>
+    /// <returns></returns>
+    public static int to_number(string number_text)
+    {
+        return int.Parse(number_text);
+    }
+    #endregion
+
     #region [Services]
     /// <summary>
     /// Makes an HTTP GET call to the specified endpiont
