@@ -4,7 +4,7 @@ using static netx;
 
 print("Update everything to nuget version");
 
-var nuget_version = commandline[1];
+var nuget_version = commandline[0];
 print($"Your value is {nuget_version}");
 
 
