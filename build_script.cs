@@ -1,4 +1,4 @@
-﻿#:package Thinkmine.NetX.Framework@1.0.4-preview
+﻿#:package Thinkmine.NetX.Framework@@@ACTIVE_VERSION-preview
 
 using static netx;
 
@@ -8,7 +8,7 @@ print("Script customization");
 pwd();
 
 //copy the created nuget package to the root folder
-copy("NetXFramework/bin/release/thinkmine.netx.framework.1.0.6-preview.nupkg", ".");
+copy("NetXFramework/bin/release/thinkmine.netx.framework.@@NEW_VERSION-preview.nupkg", ".");
 
 //see what was added to the folder
 list();
