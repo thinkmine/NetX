@@ -4,7 +4,11 @@ name: NetX Build + Publish
 
 on:
   workflow_dispatch:
-  
+    inputs:
+        nuget_version:
+           default: "1"
+           type: string
+           description: "The version number of the nuget package to be created"
 
 jobs:
 
@@ -32,23 +36,20 @@ jobs:
       
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: Replace content of files with nuget version
+      run: dotnet run build_script.cs ${{ github.event.inputs.nuget_version }}
         
     - name: Build
       run: dotnet build --configuration Release --no-restore
-
-    - name: Test netx
-      run: dotnet run build_script.cs yabadabadoo
+      
       
     - name: Publish to NuGet
-      run: dotnet nuget push thinkmine.netx.framework.1.0.6-preview.nupkg \
+      run: dotnet nuget push NetXFramework/bin/release/thinkmine.netx.framework.${{ github.event.inputs.nuget_version }}-preview.nupkg \
             --api-key oy2cepu5cptzufschscqnsjyqgtzc4sebnnafo6fk7urrq \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
-
-
-      
-    - name: List Directories
-      run: dir
+            
 
     - name: Ending
       run: echo [Ending Test]

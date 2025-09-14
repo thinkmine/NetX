@@ -1,14 +1,12 @@
-﻿#:package Thinkmine.NetX.Framework@@@ACTIVE_VERSION-preview
+﻿#:package Thinkmine.NetX.Framework.1.0.6-preview
 
 using static netx;
 
-print("Script customization");
+print("Update everything to nuget version");
 
-//check the current directory
-pwd();
+var nuget_version = commandline[1];
+print($"Your value is {nuget_version}");
 
-//copy the created nuget package to the root folder
-copy("NetXFramework/bin/release/thinkmine.netx.framework.@@NEW_VERSION-preview.nupkg", ".");
 
-//see what was added to the folder
-list();
+
+replace_in_file("NetXFramework/Thinkmine.NetX.Framework.csproj", "@@NEW_VERSION", nuget_version);
