@@ -33,12 +33,13 @@ jobs:
 
     - name: See what version of .NET was installed
       run: dotnet --version
-      
-    - name: Restore dependencies
-      run: dotnet restore
 
     - name: Replace content of files with nuget version
       run: dotnet run build_script.cs ${{ github.event.inputs.nuget_version }}
+      
+    - name: Restore dependencies
+      run: dotnet restore
+      
         
     - name: Build
       run: dotnet build --configuration Release --no-restore
