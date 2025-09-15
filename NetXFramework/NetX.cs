@@ -360,9 +360,7 @@ public static class netx
         }
 
     }
-    #endregion
 
-    #region [File IO]
     /// <summary>
     /// Replaces the given text in the specified file with replacement text
     /// </summary>
@@ -374,6 +372,50 @@ public static class netx
         var file_text = File.ReadAllText(file_path);
         var new_file_text = file_text.Replace(text, replacement_text);
         File.WriteAllText(file_path, new_file_text);
+    }
+
+    /// <summary>
+    /// Creates a new file with the specified contents
+    /// </summary>
+    /// <param name="file_path"></param>
+    /// <param name="file_contents"></param>
+    public static void create_file(string file_path, string file_contents, bool overwrite = true)
+    {
+        if (File.Exists(file_path))
+        {
+            if (overwrite)
+                File.Delete(file_path);
+            else
+            {
+                print_error($"A file with the specified name [{file_path}] already exists, consider passing the overwrite flag as true");
+                return;
+            }
+        }
+
+        File.WriteAllText(file_path, file_contents);
+    }
+
+    /// <summary>
+    /// Appends the specified contents to the end of a file
+    /// </summary>
+    /// <param name="file_path"></param>
+    /// <param name="text"></param>
+    public static void append_file(string file_path, string text)
+    {
+        var writer = File.AppendText(file_path);
+        writer.Write(text);
+        writer.Flush();
+        writer.Close();
+    }
+
+    /// <summary>
+    /// Reads a file as text
+    /// </summary>
+    /// <param name="file_path"></param>
+    /// <returns></returns>
+    public static string read_file(string file_path)
+    {
+        return File.ReadAllText(file_path);
     }
 
     /// <summary>

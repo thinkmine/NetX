@@ -43,7 +43,7 @@ jobs:
       
         
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build -p:NugetVersion=${{ github.event.inputs.nuget_version }} --configuration Release --no-restore
       
       
     - name: Publish to NuGet
