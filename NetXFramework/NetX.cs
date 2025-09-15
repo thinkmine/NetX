@@ -418,6 +418,17 @@ public static class netx
         return File.ReadAllText(file_path);
     }
 
+/// <summary>
+/// Cretes a new directory.  If a directory with than name already exists and error is printed out
+/// </summary>
+/// <param name="directory_name"></param>
+    public static void create_directory(string directory_name)
+    {
+        if (Directory.Exists(directory_name))
+            print_error("The directory already exists");
+        Directory.CreateDirectory(directory_name);
+    }
+
     /// <summary>
     /// Converts a string representation of a number to a number
     /// </summary>
