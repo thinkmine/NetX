@@ -1,6 +1,6 @@
 # Some comment
 
-name: NetX Build
+name: NetX Build + Deploy
 
 on:
   workflow_dispatch:
@@ -54,3 +54,33 @@ jobs:
 
     - name: Ending
       run: echo [Build Complete]
+
+  deploy:
+    name:  Publish netx
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    steps:
+
+    - name: Starting
+      run: echo [Deploy Started]
+
+    - name: Echo Input
+      run: echo You entered ${{ github.event.inputs.nuget_version }}
+
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v4
+      with:
+       name: netx-build-outputs-${{ github.event.inputs.nuget_version }}
+       path: .
+      
+    - name: Publish to NuGet
+      run: dotnet nuget push thinkmine.netx.framework.${{ github.event.inputs.nuget_version }}-preview.nupkg \
+            --api-key oy2cepu5cptzufschscqnsjyqgtzc4sebnnafo6fk7urrq \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+            
+
+    - name: End
+      run: echo [Deploy Complete]
+
