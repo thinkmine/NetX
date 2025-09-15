@@ -4,7 +4,11 @@ name: NetX Publish
 
 on:
   workflow_dispatch:
-
+    inputs:
+        nuget_version:
+           default: "1"
+           type: string
+           description: "The version number of the nuget package to be created"
 
 jobs:
 
