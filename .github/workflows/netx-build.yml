@@ -1,6 +1,6 @@
 # Some comment
 
-name: NetX Build + Publish
+name: NetX Build
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
         fetch-depth: 0
 
     - name: Starting
-      run: echo [Starting Test]
+      run: echo [Build Started]
 
     - name: Echo Input
       run: echo You entered ${{ github.event.inputs.nuget_version }}
@@ -35,8 +35,8 @@ jobs:
         dotnet-version: '10.0.x'
 
 
-    - name: Replace content of files with nuget version
-      run: dotnet run build_script.cs ${{ github.event.inputs.nuget_version }}
+    # - name: Replace content of files with nuget version
+    #   run: dotnet run build_script.cs ${{ github.event.inputs.nuget_version }}
       
     - name: Restore dependencies
       run: dotnet restore
@@ -44,14 +44,13 @@ jobs:
         
     - name: Build
       run: dotnet build -p:NugetVersion=${{ github.event.inputs.nuget_version }} --configuration Release --no-restore
-      
-      
-    - name: Publish to NuGet
-      run: dotnet nuget push NetXFramework/bin/release/thinkmine.netx.framework.${{ github.event.inputs.nuget_version }}-preview.nupkg \
-            --api-key oy2cepu5cptzufschscqnsjyqgtzc4sebnnafo6fk7urrq \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+       name: netx-build-outputs-${{ github.event.inputs.nuget_version }}
+       path: NetxFramework/bin/release
             
 
     - name: Ending
-      run: echo [Ending Test]
+      run: echo [Build Complete]
