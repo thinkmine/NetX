@@ -244,6 +244,26 @@ public static class netx
         delete(old_name);
     }
 
+/// <summary>
+/// Moves a file or directory from one folder to another
+/// </summary>
+/// <param name="source"></param>
+/// <param name="destination"></param>
+/// <param name="copied_filename"></param>
+    public static void move(string source, string destination = null, string copied_filename = null)
+    {
+        copy(source, destination, copied_filename);
+        FileAttributes attr = File.GetAttributes(source);
+        if (attr.HasFlag(FileAttributes.Directory))
+        {
+            Directory.Delete(source);
+        }
+        else
+        {
+            File.Delete(source);
+        }
+    }
+
     /// <summary>
     /// Copies a file or folder.  If there is a file/folder with the same name in the destination it
     /// will be overriden
@@ -352,11 +372,17 @@ public static class netx
         FileAttributes attr = File.GetAttributes(folder_item_path);
         if (attr.HasFlag(FileAttributes.Directory))
         {
-            Directory.Delete(folder_item_path, recursive);
+            if (Directory.Exists(folder_item_path))
+                Directory.Delete(folder_item_path, recursive);
+            else
+                print_error("Can't find folder with the specified name");
         }
         else
         {
-            File.Delete(folder_item_path);
+            if (File.Exists(folder_item_path))
+                File.Delete(folder_item_path);
+            else
+                print_error("Can't find file with the specified name");
         }
 
     }
