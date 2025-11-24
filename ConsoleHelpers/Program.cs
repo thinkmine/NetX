@@ -1,17 +1,21 @@
 ﻿//#:package Thinkmine.NetX.Framework@1.0.2-preview
 
+using System.Diagnostics;
 using static netx;
 
-Environment.SetEnvironmentVariable("hello", "sss");
-Console.WriteLine(current_user);
-print(commandline.Length.ToString());
-if (commandline.Length > 0)
-    print($"Command Line: {commandline[0]}");
 
-foreach (var item in environment_variables)
-{
-    print($"{item.Key}={item.Value}");
-}
+delete("c:/umsrvr4");
+get_process("notepad");
+end_process(24744);
+Console.WriteLine(current_user);
+//print(commandline.Length.ToString());
+//if (commandline.Length > 0)
+//    print($"Command Line: {commandline[0]}");
+
+//foreach (var item in environment_variables)
+//{
+//    print($"{item.Key}={item.Value}");
+//}
 
 
 var passcode = prompt("What is your passcode");

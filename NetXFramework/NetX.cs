@@ -273,12 +273,12 @@ public static class netx
         delete(old_name);
     }
 
-/// <summary>
-/// Moves a file or directory from one folder to another
-/// </summary>
-/// <param name="source"></param>
-/// <param name="destination"></param>
-/// <param name="copied_filename"></param>
+    /// <summary>
+    /// Moves a file or directory from one folder to another
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="destination"></param>
+    /// <param name="copied_filename"></param>
     public static void move(string source, string destination = null, string copied_filename = null)
     {
         copy(source, destination, copied_filename);
@@ -397,7 +397,16 @@ public static class netx
     /// <param name="folder_item_path">Path of the folder</param>
     public static void delete(string folder_item_path)
     {
-        bool recursive = true;
+        if (File.Exists(folder_item_path))
+        {
+        }
+        else if (Directory.Exists(folder_item_path))
+        {
+        }
+        else
+            return;
+
+            bool recursive = true;
         FileAttributes attr = File.GetAttributes(folder_item_path);
         if (attr.HasFlag(FileAttributes.Directory))
         {
@@ -473,10 +482,10 @@ public static class netx
         return File.ReadAllText(file_path);
     }
 
-/// <summary>
-/// Cretes a new directory.  If a directory with than name already exists and error is printed out
-/// </summary>
-/// <param name="directory_name"></param>
+    /// <summary>
+    /// Cretes a new directory.  If a directory with than name already exists and error is printed out
+    /// </summary>
+    /// <param name="directory_name"></param>
     public static void create_directory(string directory_name)
     {
         if (Directory.Exists(directory_name))
@@ -569,6 +578,81 @@ public static class netx
         retval.LoadXml(xml);
         return retval;
     }
+    #endregion
+
+    #region Process
+    public static void get_process(string process_name = "")
+    {
+        try
+        {
+            Console.WriteLine($"ID\tName");
+           
+            foreach (var process in Process.GetProcessesByName(process_name))
+            {
+                Console.WriteLine($"{process.Id}\t{process.ProcessName}");
+            }
+        }
+        catch (Exception ex)
+        {
+            print_error(ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// Writes the list of processes to the console window
+    /// </summary>
+    public static void get_processes()
+    {
+        try
+        {
+            Console.WriteLine($"ID\tName");
+            foreach (var process in Process.GetProcesses())
+            {
+                Console.WriteLine($"{process.Id}\t{process.ProcessName}");
+            }
+        }
+        catch (Exception ex)
+        {
+            print_error(ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// Kills a process given its process id
+    /// </summary>
+    /// <param name="process_id">Process id of the process to kill</param>
+    public static void end_process(int process_id)
+    {
+        try
+        {
+            var proc = Process.GetProcessById(process_id);
+            proc.Kill();
+            proc.WaitForExit();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Kills a process based on the process name
+    /// </summary>
+    /// <param name="process_name">Name of the process(es) to kill</param>
+    public static void end_process(string process_name)
+    {
+        try
+        {
+            foreach (var proc in Process.GetProcessesByName(process_name))
+            {
+                proc.Kill();
+                proc.WaitForExit();
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
     #endregion
 }
 
