@@ -37,6 +37,10 @@ public static class netx
         }
     }
 
+    /// <summary>
+    /// Gets the username of the current user
+    /// </summary>
+    public static string current_user => Environment.UserName;
 
     #region [Console]
     /// <summary>
@@ -61,6 +65,26 @@ public static class netx
             list.RemoveAt(0);
             return list.ToArray();
         }
+    }
+
+    /// <summary>
+    /// Sets the value of the specified environment variable.  If the
+    /// variable does not exist one is created
+    /// </summary>
+    /// <param name="environment_variable">Name of the environment variable</param>
+    /// <param name="value">Value of the environment variable</param>
+    public static void set_env(string environment_variable, string value)
+    {
+        Environment.SetEnvironmentVariable(environment_variable, value);
+    }
+
+    /// <summary>
+    /// Terminates the process and returns an exit code to the OS 
+    /// </summary>
+    /// <param name="exit_code">Exit code to return to the OS</param>
+    public static void exit(int exit_code)
+    {
+        Environment.Exit(exit_code);
     }
 
     /// <summary>
@@ -192,6 +216,11 @@ public static class netx
         {
             cmd = "/bin/bash";
             args = $"$-c {command}";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            //cmd = "/bin/bash";
+            //args = $"$-c {command}";
         }
         else
         {

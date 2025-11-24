@@ -2,6 +2,8 @@
 
 using static netx;
 
+Environment.SetEnvironmentVariable("hello", "sss");
+Console.WriteLine(current_user);
 print(commandline.Length.ToString());
 if (commandline.Length > 0)
     print($"Command Line: {commandline[0]}");
