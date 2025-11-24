@@ -43,7 +43,7 @@ Here is what a sample netx script looks like.  Assuming this file was called __d
 ```dotnet run dostuff.cs```  
 
 ```
-#:package Thinkmine.NetX@1.0.*-preview
+#:package Thinkmine.NetX@1.0.13-preview
 using static netx;
 
 exec("dir");
@@ -166,7 +166,7 @@ bool Validate(string passcode)
 
 ## Basic commands
 
-netx currently has 14 commands you can perform with it.  The table below provides instructions
+netx currently has 20 commands you can perform with it.  The table below provides instructions
 on what they are and how to use them.
 
 | Command | Sample | Description |
@@ -188,8 +188,8 @@ on what they are and how to use them.
 |commandline|```commandline```|Gets the command line that was passed into the script when it was run
 |environment_variables|```environment_variables```|Gets a string based name/value dictionary of all the enviroment variables in scope.
 |current_directory|```current_directory```|Gets the current directory as a string value
+|current_user|```current_user```|Gets the current user on which the script is running
+|exit|```exit```|Exits the process with an error code
+|set_env|```set_env```|Sets an environment variable
 
 
-## Advanced commands
-
-Documentation coming soon.

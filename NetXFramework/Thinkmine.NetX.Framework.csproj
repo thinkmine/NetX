@@ -7,16 +7,16 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>NetX Framework</Title>
     <Authors>Edward Moemeka, thinkmine</Authors>
-	<NugetVersion>1.0.12</NugetVersion>
+	<NugetVersion>1.0.14</NugetVersion>
     <Version>$(NugetVersion)-preview</Version>
     <Description>Utility methods that provide quick shortcuts to functionality in scenarios where C# is being run using dotnet run app</Description>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <PackageIcon>zaria.png</PackageIcon>
     <PackageProjectUrl>https://github.com/thinkmine/NetX</PackageProjectUrl>
-    <AssemblyName>Thinkmine.NetX.Framework</AssemblyName>
+    <AssemblyName>Thinkmine.NetX</AssemblyName>
     <RootNamespace>netx</RootNamespace>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageId>Thinkmine.Netx</PackageId>
+    <PackageId>Thinkmine.NetX</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
